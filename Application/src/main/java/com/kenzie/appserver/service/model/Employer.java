@@ -1,69 +1,26 @@
 package com.kenzie.appserver.service.model;
 
-import java.util.Objects;
+public class Employer {
+private String employerId;
+private String companyName;
+private String credentials;
 
-public class Company {
-    private String companyId;
-    private String companyName;
-    private String Email;
-    private String website;
-    private String location;
-    private String contactNumber;
 
-    public Company(String companyId, String companyName, String contactNumber, String location){
-        this.companyId= companyId;
-        this.companyName= companyName;
-        this.contactNumber= contactNumber;
-        this.location= location;
-    }
+public Employer(String employerId, String companyName, String credentials){
+    this.employerId= employerId;
+    this.companyName= companyName;
+    this.credentials= credentials;
+}
 
-    public String getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
+    public String getEmployerId() {
+        return employerId;
     }
 
     public String getCompanyName() {
         return companyName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public String getCredentials() {
+        return credentials;
     }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getContactNumber() {
-        return contactNumber;
-    }
-
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
-
 }
