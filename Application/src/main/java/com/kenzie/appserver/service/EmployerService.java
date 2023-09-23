@@ -1,6 +1,8 @@
 package com.kenzie.appserver.service;
 
+import com.kenzie.appserver.repositories.EmployerRepository;
 import com.kenzie.appserver.repositories.ExampleRepository;
+import com.kenzie.appserver.repositories.model.ExampleRecord;
 import com.kenzie.appserver.service.model.Employer;
 
 public class EmployerService {
@@ -19,6 +21,11 @@ public class EmployerService {
 
     }
     public Employer addNewEmployer(Employer employer){
+        EmployerRepository employerRepository = new EmployerRecord();
+        exampleRecord.setId(example.getId());
+        exampleRecord.setName(example.getName());
+        exampleRepository.save(exampleRecord);
+        return example;
 
     }
 
