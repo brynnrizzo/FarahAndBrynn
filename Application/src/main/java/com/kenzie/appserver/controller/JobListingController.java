@@ -10,7 +10,7 @@ import java.util.List;
 
 //Eva's task #2 out of 3 for Sprint 1
 @RestController
-@RequestMapping("/job")
+@RequestMapping("/job") ///??localhost/
 public class JobListingController {
     /*
     once it merges I can uncomment this b/c I need the job listing service
