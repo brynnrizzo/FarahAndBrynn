@@ -35,6 +35,9 @@ public class JobListingResponse {
     @JsonProperty("employerID")
     private String employerID;
 
+    @JsonProperty("keywords")
+    private List<String> keywords;
+
     public String getJobID() {
         return jobID;
     }
@@ -106,6 +109,10 @@ public class JobListingResponse {
     public void setEmployerID(String employerID) {
         this.employerID = employerID;
     }
+
+    public List<String> getKeywords() {return keywords;}
+
+    public void setKeywords(List<String> keywords) {this.keywords = keywords;}
 
     //add equals & hashcode and toString later if needed
 }
