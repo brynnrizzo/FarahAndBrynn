@@ -7,7 +7,7 @@ import java.util.List;
 
 //Eva's task #1 out of 3 for Sprint 1
 public class JobListingCreateRequest {
-    //include notempty annotation????
+    //include not empty annotation???? still thinking about this
     @JsonProperty("jobTitle")
     private String jobTitle;
 
