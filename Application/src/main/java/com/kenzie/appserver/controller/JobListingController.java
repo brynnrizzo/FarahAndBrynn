@@ -33,11 +33,11 @@ public class JobListingController {
     @GetMapping("/search") //edit annotation if needed.. send the keywords through a post*???? overwise maybe use req para........
     public ResponseEntity<JobListingResponse> searchJobsByKeyword(@RequestParam("keywords") List<String> keywords) {
 
-        //more code here
+        //check if keywords are null
 
         JobListingResponse jobListingResponse = new JobListingResponse(); //edit this if needed
 
-        //more code here
+        //check if job listings is null
 
         return ResponseEntity.ok(jobListingResponse); //edit this if needed return the list of jobs by keyword
 
@@ -57,6 +57,7 @@ public class JobListingController {
     public ResponseEntity<JobListingResponse> createJobListing(@RequestBody JobListingCreateRequest request){
 
         //code here
+
 
         return null; //edit this when ready
     }
