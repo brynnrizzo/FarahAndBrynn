@@ -19,6 +19,8 @@ public class EmployerService {
         this.employerRepository = employerRepository;
     }
     public Employer findEmployerById(String id){
+        //find an employer in the repository by the given Id.
+
 
         Employer employerFromBackend= employerRepository
                 .findById(id)
@@ -45,7 +47,7 @@ public class EmployerService {
     }
 
         public Employer convertToEmployer(EmployerRecord employerRecord) {
-
+// takes an employerRecord object and converts it into an Employer
             Employer employer = new Employer(employerRecord.getEmployerId(),
                     employerRecord.getCompanyName(),
                     employerRecord.getCredentials());
