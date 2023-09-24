@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotEmpty; //????
 import java.util.List;
 
-//Eva's task #1 out of 3 for Sprint 1
+//Eva's task #1 out of 3 for Sprint 1  THIS IS A DTO THAT GETS SENT FROM THE FRONTEND TO THE BACKEND
 public class JobListingCreateRequest {
     //include not empty annotation???? still thinking about this
     @JsonProperty("jobTitle")
