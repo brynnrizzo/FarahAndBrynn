@@ -16,6 +16,7 @@ public class JobListingService {
 
     public List<JobListing> searchJobsByKeywords(List<String> keywords) {
         //TODO
+
         /*“As a job seeker I want to search for jobs based on keywords”*/
         List<JobListing> matchingJobs = new ArrayList<>();
 
@@ -33,6 +34,9 @@ public class JobListingService {
         }
 
         return matchingJobs;
+
+
+
     }
 
     public List<JobListing> filterJobs(){
