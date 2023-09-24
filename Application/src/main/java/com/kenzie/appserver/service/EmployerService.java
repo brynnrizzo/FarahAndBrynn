@@ -59,7 +59,7 @@ public class EmployerService {
     }
 
         public Employer convertToEmployer(EmployerRecord employerRecord) {
-// takes an employerRecord object and converts it into an Employer
+     // takes the employerRecord object and converts it into an Employer
             Employer employer = new Employer(employerRecord.getEmployerId(),
                     employerRecord.getCompanyName(),
                     employerRecord.getCredentials());
