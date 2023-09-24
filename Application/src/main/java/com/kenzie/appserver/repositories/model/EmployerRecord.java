@@ -1,4 +1,3 @@
-
 package com.kenzie.appserver.repositories.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
@@ -34,7 +33,4 @@ public class EmployerRecord {
     public void setEmployerId(String employerId) {
         this.employerId = employerId;
     }
-
-package com.kenzie.appserver.repositories.model;public class EmployerRecord {
-
 }
