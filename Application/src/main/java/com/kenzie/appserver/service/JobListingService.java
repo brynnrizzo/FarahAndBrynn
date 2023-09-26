@@ -35,8 +35,6 @@ public class JobListingService {
 
         return matchingJobs;
 
-
-
     }
 
     public List<JobListing> filterJobs(){
