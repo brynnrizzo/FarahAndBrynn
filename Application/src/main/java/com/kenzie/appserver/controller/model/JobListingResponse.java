@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-//Eva's task #1 out of 3 for Sprint 1
+//Eva's task #1 out of 3 for Sprint 1  FROM BACKEND TO THE FRONTEND
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JobListingResponse {
-    @JsonProperty("jobID")
+    @JsonProperty("jobID")  //THIS WHEN THE JOB LISTING HAS BEEN CREATED AND WE WERE GIVEN A JOBID
     private String jobID;
 
     @JsonProperty("jobTitle")
