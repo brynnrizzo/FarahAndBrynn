@@ -32,7 +32,7 @@ public class EmployerService {
         return employerFromBackend;
     }
 
-    public List<Employer> findByIdAndCredentialsAndCompanyName(String id, String credentials, String companyName) {
+    public List<Employer> findById(String id, String credentials, String companyName) {
 
         Iterable<EmployerRecord> employerRecords =
                 employerRepository.filterEmployer(id, credentials, companyName);

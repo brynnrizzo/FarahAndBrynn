@@ -1,5 +1,9 @@
 package com.kenzie.appserver.service;
 
+import com.kenzie.appserver.repositories.EmployerRepository;
+import com.kenzie.appserver.repositories.ExampleRepository;
+import com.kenzie.appserver.repositories.JobListingRepository;
+import com.kenzie.appserver.repositories.model.JobListingRecord;
 import com.kenzie.appserver.service.model.JobListing;
 import org.springframework.stereotype.Service;
 
@@ -7,52 +11,77 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class JobListingService {
+    private JobListingRepository jobListingRepository;
+   public JobListingService(JobListingRepository jobListingRepository){
+       this.jobListingRepository=jobListingRepository;
+   }
+public List<JobListing> findAllJobListing(){
+       List<JobListing> listings= new ArrayList<>();
+       Iterable<JobListingRecord> listingIterable= jobListingRepository.findAll();
+       for(JobListingRecord record: listingIterable){
+           listings.add(new JobListing(record.getJobId(),
+                   record.getJobTitle(),
+                   record.getJobDescription(),
+                   record.getLocation(),
+                   record.isStatus(),
+                   record.getSalary(),
+                   record.getSkills()));
+       }
+       return listings;
+}
 
-    private List<JobListing> jobListings;
 
-    public JobListingService(List<JobListing> jobListings) {
-        this.jobListings = jobListings;
+
+    public JobListing findById(String id) {
+       JobListing jobListingFromBackend= jobListingRepository
+               .findById(id)
+               .map(jobListing -> new JobListing(jobListing.getJobId(),
+                       jobListing.getJobTitle(),
+                       jobListing.getJobDescription(),
+                       jobListing.getLocation(),
+                       jobListing.isStatus(),
+                       jobListing.getSalary(),
+                       jobListing.getSkills()))
+
+               .orElse(null);
+
+       return jobListingFromBackend;
+
     }
 
-    public List<JobListing> searchJobsByKeywords(List<String> keywords) {
-        //TODO
 
-        /*“As a job seeker I want to search for jobs based on keywords”*/
-        List<JobListing> matchingJobs = new ArrayList<>();
-
-        // Iterate through each job listing
-        for (JobListing jobListing : jobListings) {
-            // each keyword checkS for a match
-            for (String keyword : keywords) {
-                // Checks if the job title contains the current keyword
-                if (jobListing.getJobTitle().contains(keyword)) {
-                    // checks if match if found then adds.
-                    matchingJobs.add(jobListing);
-                    break;
-                }
-            }
-        }
-
-        return matchingJobs;
+    public JobListing addNewJobListing(JobListing jobListing){
+        JobListingRecord jobListingRecord= new JobListingRecord();
+        jobListingRecord.setJobId(jobListing.getJobId());
+        jobListingRecord.setJobTitle(jobListing.getJobTitle());
+        jobListingRecord.setJobDescription(jobListing.getJobDescription());
+        jobListingRecord.setLocation(jobListing.getLocation());
+        jobListingRecord.setSkills(jobListing.getSkills());
+        jobListingRecord.setStatus(jobListing.isStatus());
+        jobListingRecord.setSalary(jobListing.getSalary());
+        return jobListing;
 
     }
 
-    public List<JobListing> filterJobs(){
-         //TODO
-        /*“As a job seeker I want to filter through
-        jobs that align with my skills, preferences,
-        and career goals”*/
+    public void updateJobListing (JobListing jobListing){
+       if(jobListingRepository.existsById(jobListing.getJobId())){
+           JobListingRecord jobListingRecord= new JobListingRecord();
+           jobListingRecord.setJobId(jobListing.getJobId());
+           jobListingRecord.setJobTitle(jobListing.getJobTitle());
+           jobListingRecord.setJobDescription(jobListing.getJobDescription());
+           jobListingRecord.setLocation(jobListing.getLocation());
+           jobListingRecord.setSkills(jobListing.getSkills());
+           jobListingRecord.setStatus(jobListing.isStatus());
+           jobListingRecord.setSalary(jobListing.getSalary());
 
-        return null;
-    }
+           jobListingRepository.save(jobListingRecord);
+       }
 
-    public void postJob (){
-        //TODO
-        /*“As an employer I want to post a new job listing”*/
+
     }
-    public void updateJob(){
-        //TODO
-        /*“As an employer I want to update the job listing*/
+    public void deleteJobListing(String jobListingId){
+       jobListingRepository.deleteById(jobListingId);
+
 
     }
 
