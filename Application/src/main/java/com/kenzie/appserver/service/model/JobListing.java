@@ -6,10 +6,20 @@ public class JobListing {
     private String jobId;
     private String jobTitle;
     private String jobDescription;
-    private String Location;
-    private boolean Status;
-    private double Salary;
-    private List<String>Skills;
+    private String location;
+    private boolean status;
+    private double salary;
+    private List<String>skills;
+
+    public JobListing(String jobId, String jobTitle,String jobDescription,String location,boolean status,double salary,List<String>skills) {
+      this.jobId= jobId;
+      this.jobTitle=jobTitle;
+      this.jobDescription=jobDescription;
+      this.location= location;
+      this.status= status;
+      this.salary= salary;
+      this.skills= skills;
+    }
 
     public String getJobDescription() {
         return jobDescription;
@@ -36,34 +46,30 @@ public class JobListing {
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
     }
 
     public double getSalary() {
-        return Salary;
+        return salary;
     }
 
     public void setSalary(double salary) {
-        Salary = salary;
     }
 
     public List<String> getSkills() {
-        return Skills;
+        return skills;
     }
 
     public void setSkills(List<String> skills) {
-        Skills = skills;
     }
 
     public boolean isStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(boolean status) {
-        Status = status;
     }
 }
