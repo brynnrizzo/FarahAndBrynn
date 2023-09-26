@@ -2,10 +2,7 @@ package com.kenzie.appserver.service;
 
 import com.kenzie.appserver.repositories.EmployerRepository;
 import com.kenzie.appserver.repositories.ExampleRepository;
-
 import com.kenzie.appserver.repositories.model.EmployerRecord;
-
-
 import com.kenzie.appserver.repositories.model.ExampleRecord;
 import com.kenzie.appserver.service.model.Employer;
 import org.springframework.stereotype.Service;
@@ -35,15 +32,6 @@ public class EmployerService {
         return employerFromBackend;
     }
 
-
-    public Employer addNewEmployer(Employer employer){
-        EmployerRepository employerRepository = new EmployerRecord();
-        exampleRecord.setId(example.getId());
-        exampleRecord.setName(example.getName());
-        exampleRepository.save(exampleRecord);
-        return example;
-
-
     public List<Employer> findByIdAndCredentialsAndCompanyName(String id, String credentials, String companyName) {
 
         Iterable<EmployerRecord> employerRecords =
@@ -59,7 +47,7 @@ public class EmployerService {
     }
 
         public Employer convertToEmployer(EmployerRecord employerRecord) {
-// takes an employerRecord object and converts it into an Employer
+     // takes the employerRecord object and converts it into an Employer
             Employer employer = new Employer(employerRecord.getEmployerId(),
                     employerRecord.getCompanyName(),
                     employerRecord.getCredentials());
